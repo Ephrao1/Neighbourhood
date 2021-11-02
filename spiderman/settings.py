@@ -15,6 +15,7 @@ import os
 from decouple import config, Csv
 import dj_database_url
 import django_heroku
+
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -32,15 +33,10 @@ SECRET_KEY = 'django-insecure-hq)anj*5z%c*w&edpr5nonzsl@$eb0hymnsp(&iaigpegrvpr!
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECRET_KEY = 'django-insecure-)tbk3yxxwjc+4yd!tm!iu+5dm$=p@&1o^nzldrj&0_#2ujjx^j'
 
+
 MODE=config("MODE", default="dev")
-
 SECRET_KEY = config('SECRET_KEY')
-
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', True)
-DEBUG = True
-
+DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
    DATABASES = {
@@ -58,7 +54,7 @@ if config('MODE')=="dev":
 else:
    DATABASES = {
        'default': dj_database_url.config(
-           default=config('DATABASE_URL2')
+           default=config('DATABASE_URL')
        )
    }
 
@@ -66,9 +62,7 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,7 +82,7 @@ cloudinary.config(
     cloud_name="dyj4zf5he",
     api_key="794387149528958",
     api_secret="67zyolzBTBByXgow9j2OzoKefio",
-  secure=True
+    secure=True
 )
 
 
@@ -189,10 +183,13 @@ LOGOUT_REDIRECT_URL='/'
 
 LOGIN_REDIRECT_URL='/'
 
-django_heroku.settings(locals())
+
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
