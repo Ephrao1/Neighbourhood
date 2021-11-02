@@ -1,3 +1,4 @@
-.env
-spidey/
+env/
 __pycache__
+.env
+.vscode
