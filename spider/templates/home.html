@@ -200,7 +200,7 @@
           <h3 class="mb-0">Daily Quote</h3>
           <div class="mb-1 text-muted">Nov 12</div>
           <p class="card-text mb-auto">
-            You are today where your thoughts have brought you; you will be tomorrow where your thoughts take you.</p>
+            Many of life’s failures are people who did not realize how close they were to success when they gave up</p>
         </div>
       </div>
     </div>
@@ -231,7 +231,7 @@
   <div class="row">
     <div class="col-md-8">
       <h3 class="pb-4 mb-4 font-italic border-bottom">
-        Recent Posts from Spidey
+        Recent Posts from Ephra's Gallery
       </h3>
       {% for post in posts %}
       {% if post.hood == request.user.profile.neighborhood %}
@@ -363,7 +363,7 @@
           <div class="col p-4 d-flex flex-column position-static">
             Welcome <strong class="d-inline-block mb-2 text-primary">{{ request.user.username }}</strong>
             <h3 class="mb-0"></h3>
-            <div class="mb-1 text-muted">You have joined The Friendly Neighborhood Spiderman app on {{ request.user.profile.created }}</div>
+            <div class="mb-1 text-muted">You have joined Ephra's Neighbourhood app on {{ request.user.profile.created }}</div>
             <p class="card-text mb-auto">
               As you may have noticed, you cannot see any information on the website. Would you like to know why?
               View the next card.
@@ -379,7 +379,7 @@
             <div class="mb-1 text-muted">Nov 11</div> -->
             <p class="mb-auto">
               To view information relevant to your neighborhood, click the button below to edit your profile and select
-              your neighborhood for you to experience the websites full potential!
+              your neighborhood. Experience the websites full potential!
             </p>
             <p>
               <a type="button" href="{% url 'updateprofile' request.user.profile.pk %}" class="text-white font-weight-bold btn btn-secondary">
@@ -396,8 +396,8 @@
 </main><!-- /.container -->
 
 <footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
-      href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>Ephra's Neighbourbood developed for <a href="https://getbootstrap.com/">Community</a> by <a
+      href="https://twitter.com/mdo">@Ephra</a>.</p>
   <p>
     <a href="#">Back to top</a>
   </p>
